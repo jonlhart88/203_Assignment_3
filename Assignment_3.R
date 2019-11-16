@@ -1,9 +1,10 @@
 library(tidyverse)
 library(janitor)
 
-groundwater_data <- read_csv("groundwater_data.csv" %>% 
-filter(year == 2000 | year == 2050) 
-
+groundwater_data <- read_csv("groundwater_data.csv") %>% 
+  select(-X4) %>% 
+  filter(Year == 2000 | Year == 2050)
+  
 
 ggplot(data = groundwater_data, aes(x = Year,  y = In)) +
   geom_line(color = "red",
