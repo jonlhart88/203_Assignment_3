@@ -83,7 +83,8 @@ inputs_policy <- c(in_2000_policy, in_2050_policy)
 outputs_policy <- c(out_2000_policy, out_2050_policy)
 
 year <- c(2000, 2050)
-
+scale_y_continuous(limits = c(10, 30),
+                   breaks = seq(10, 30, by = 2.5)) +
 flux_in_out_policy <- data.frame(year, inputs_policy, outputs_policy) %>% 
   clean_names() 
 
@@ -110,13 +111,13 @@ ggplot(data = flux_in_out_policy, aes(x = year)) +
        y = "Flux (10^9 m^3)") +
   geom_text(x = 2025, 
             y = 17.5, 
-            label = "Outflow = .176x - 333.8",
+            label = "Outflow = .006x + 6.2",
             size = 5,
             color = "blue",
             aes(fontface = 1)) +
   geom_text(x = 2025, 
             y = 12, 
-            label = "Inflow = -0.05x + 112.8",
+            label = "Inflow = -0.086x + 184.8",
             size = 5,
             color = "red",
             aes(fontface = 1)) +
