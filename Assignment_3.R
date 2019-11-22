@@ -31,6 +31,10 @@ ggplot(data = flux_in_out, aes(x = year)) +
  geom_line(aes(y = outputs),
            color = "blue",
            size = 1.3) +
+ geom_ribbon(aes(ymin = inputs, 
+                  ymax = outputs), 
+              fill = "yellow", 
+              alpha = 0.2) +
  scale_y_continuous(limits = c(10, 30),
                     breaks = seq(10, 30, by = 2.5)) +
   scale_x_continuous(limits = c(2000, 2050),
@@ -41,15 +45,15 @@ ggplot(data = flux_in_out, aes(x = year)) +
        x = "Year",
        y = "Flux (10^9 m^3)") +
   geom_text(x = 2015, 
-            y = 24, 
+            y = 23, 
             label = "Outflow = .176x - 333.8",
-            size = 5,
+            size = 4,
             color = "blue",
             aes(fontface = 1)) +
-  geom_text(x = 2030, 
-            y = 13, 
+  geom_text(x = 2010, 
+            y = 10.5, 
             label = "Inflow = -0.05x + 112.8",
-            size = 5,
+            size = 4,
             color = "red",
             aes(fontface = 1)) +
   geom_text(x = 2001,
@@ -67,7 +71,12 @@ ggplot(data = flux_in_out, aes(x = year)) +
   geom_text(x = 2050,
             y = 28, 
             label = "(2000,27)",
-            size = 3)
+            size = 3) +
+  geom_text(x = 2030,
+            y = 17.5, 
+            label = "Total Groundwater Loss",
+            size = 5,
+            aes(fontface = 1))
 
 
 # Flux Rates (Policy)
@@ -100,6 +109,10 @@ ggplot(data = flux_in_out_policy, aes(x = year)) +
   geom_line(aes(y = outputs_policy),
             color = "blue",
             size = 1.3) +
+  geom_ribbon(aes(ymin = inputs_policy, 
+                  ymax = outputs_policy), 
+              fill = "yellow", 
+              alpha = 0.2) +
   scale_x_continuous(limits = c(2000, 2050),
                      breaks = seq(2000, 2050, by =5)) +
   scale_y_continuous(limits = c(8, 20),
@@ -110,15 +123,15 @@ ggplot(data = flux_in_out_policy, aes(x = year)) +
        x = "Year",
        y = "Flux (10^9 m^3)") +
   geom_text(x = 2025, 
-            y = 17.5, 
+            y = 19, 
             label = "Outflow = .006x + 6.2",
-            size = 5,
+            size = 4,
             color = "blue",
             aes(fontface = 1)) +
-  geom_text(x = 2025, 
-            y = 12, 
+  geom_text(x = 2009, 
+            y = 11, 
             label = "Inflow = -0.086x + 184.8",
-            size = 5,
+            size = 4,
             color = "red",
             aes(fontface = 1)) +
   geom_text(x = 2001,
@@ -136,5 +149,11 @@ ggplot(data = flux_in_out_policy, aes(x = year)) +
   geom_text(x = 2049,
             y = 19, 
             label = "(2050,18.5)",
-            size = 3)
+            size = 3) +
+  geom_text(x = 2025,
+            y = 15, 
+            label = "Total Groundwater Loss",
+            size = 5,
+            aes(fontface = 1))
+
 
