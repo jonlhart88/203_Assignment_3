@@ -1,5 +1,6 @@
 library(tidyverse)
 library(janitor)
+library(here)
 
 # Flux Rates (Business as Usual)
 
@@ -32,7 +33,7 @@ ggplot(data = flux_in_out, aes(x = year)) +
            color = "blue",
            size = 1.3) +
  geom_ribbon(aes(ymin = inputs, 
-                  ymax = outputs), 
+                 ymax = outputs), 
               fill = "yellow", 
               alpha = 0.2) +
  scale_y_continuous(limits = c(10, 30),
@@ -65,11 +66,11 @@ ggplot(data = flux_in_out, aes(x = year)) +
             label = "(2000,12.8)",
             size = 3) +
   geom_text(x = 2049,
-            y = 11.5, 
+            y = 11, 
             label = "(2050,10.3)",
             size = 3) +
   geom_text(x = 2050,
-            y = 28, 
+            y = 27.5, 
             label = "(2000,27)",
             size = 3) +
   geom_text(x = 2030,
@@ -78,6 +79,7 @@ ggplot(data = flux_in_out, aes(x = year)) +
             size = 5,
             aes(fontface = 1))
 
+ggsave(here::here("Final Figures", "BAU_fluxes.png"), width = 10, height = 8)
 
 # Flux Rates (Policy)
              
@@ -130,7 +132,7 @@ ggplot(data = flux_in_out_policy, aes(x = year)) +
             aes(fontface = 1)) +
   geom_text(x = 2009, 
             y = 11, 
-            label = "Inflow = -0.086x + 184.8",
+            label = "Inflow = -.086x + 184.8",
             size = 4,
             color = "red",
             aes(fontface = 1)) +
@@ -139,15 +141,15 @@ ggplot(data = flux_in_out_policy, aes(x = year)) +
             label = "(2000,18.2)",
             size = 3) +
   geom_text(x = 2001,
-            y = 13.5, 
+            y = 12.3, 
             label = "(2000,12.8)",
             size = 3) +
   geom_text(x = 2049,
-            y = 9.3, 
+            y = 8, 
             label = "(2050,8.5)",
             size = 3) +
   geom_text(x = 2049,
-            y = 19, 
+            y = 18, 
             label = "(2050,18.5)",
             size = 3) +
   geom_text(x = 2025,
@@ -156,4 +158,4 @@ ggplot(data = flux_in_out_policy, aes(x = year)) +
             size = 5,
             aes(fontface = 1))
 
-
+ggsave(here::here("Final Figures", "policy_fluxes.png"), width = 10, height = 8)
