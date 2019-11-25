@@ -7,9 +7,6 @@ library(here)
 bau_scenarios <- read_csv("Business As Usual Scenarios Data.csv") %>% 
   clean_names()
 
-water_runout <- read_csv("groundwater_runout_years - Sheet1.csv") %>% 
-  clean_names()
-
 ggplot(data = bau_scenarios, aes(x = year)) +
   geom_line(aes(y = high),
             color = "#229954",
@@ -24,7 +21,12 @@ ggplot(data = bau_scenarios, aes(x = year)) +
               ymax = 0),
               fill = "red",
               alpha = 0.10) +
-  geom_hline(yintercept = 0,
+  geom_hline(yintercept = 0) +
+  geom_vline(xintercept = 2022.7,
+             linetype = 2) +
+  geom_vline(xintercept = 2035.9,
+             linetype = 2) +
+  geom_vline(xintercept = 2049.3,
              linetype = 2) +
   scale_x_continuous(limits = c(2000, 2050.5),
                      breaks = seq(2000, 2050, by = 5),
@@ -50,20 +52,23 @@ ggplot(data = bau_scenarios, aes(x = year)) +
             label = "Low",
             angle = -15) +
   annotate("text", 
-           x = 2024, 
-           y = 21.5, 
-           label = "(2022)",
-           size = 3) +
+           x = 2022, 
+           y = 500, 
+           label = "(2022-3)",
+           size = 4,
+           angle = 270) +
   annotate("text", 
-           x = 2037, 
-           y = 21.5, 
-           label = "(2035)",
-           size = 3) +
+           x = 2035.2, 
+           y = 500, 
+           label = "(2035-6)",
+           size = 4,
+           angle = 270) +
   annotate("text", 
            x = 2048.5, 
-           y = -15, 
-           label = "(2049)",
-           size = 3) +
+           y = 500, 
+           label = "(2049-50)",
+           size = 4,
+           angle = 270) +
   theme(axis.text.x = element_text(angle = 90))
 
 ggsave(here::here("Final Figures", "boa_scenarios.png"), width = 10, height = 8)
