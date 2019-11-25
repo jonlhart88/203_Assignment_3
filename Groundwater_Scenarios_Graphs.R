@@ -93,7 +93,12 @@ ggplot(data = policy_scenarios, aes(x = year)) +
                   ymax = 0),
               fill = "red",
               alpha = 0.10) +
-  geom_hline(yintercept = 0,
+  geom_hline(yintercept = 0) +
+  geom_vline(xintercept = 2027.3,
+             linetype = 2) +
+  geom_vline(xintercept = 2045.6,
+             linetype = 2) +
+  geom_vline(xintercept = 2064.8,
              linetype = 2) +
   scale_x_continuous(limits = c(2000, 2066),
                      breaks = seq(2000, 2065, by = 5),
@@ -119,20 +124,23 @@ ggplot(data = policy_scenarios, aes(x = year)) +
             label = "Low",
             angle = -15) +
   annotate("text", 
-           x = 2028, 
-           y = 23, 
-           label = "(2027)",
-           size = 3) +
+           x = 2026.5, 
+           y = 500, 
+           label = "(2027-8)",
+           size = 4,
+           angle = 270) +
   annotate("text", 
-           x = 2046, 
-           y = 23, 
-           label = "(2045)",
-           size = 3) +
+           x = 2044.8, 
+           y = 500, 
+           label = "(2045-6)",
+           size = 4,
+           angle = 270) +
   annotate("text", 
-           x = 2064.5, 
-           y = 28, 
-           label = "(2064)",
-           size = 3) +
+           x = 2064, 
+           y = 500, 
+           label = "(2064-5)",
+           size = 4,
+           angle = 270) +
   theme(axis.text.x = element_text(angle = 90))
 
 ggsave(here::here("Final Figures", "policy_scenarios.png"), width = 10, height = 8)
