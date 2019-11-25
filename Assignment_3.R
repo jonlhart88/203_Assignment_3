@@ -115,6 +115,7 @@ ggplot(data = flux_in_out_policy, aes(x = year)) +
                   ymax = outputs_policy), 
               fill = "yellow", 
               alpha = 0.2) +
+  geom_point(data = water_runout, x = year)
   scale_x_continuous(limits = c(2000, 2050),
                      breaks = seq(2000, 2050, by =5)) +
   scale_y_continuous(limits = c(8, 20),
