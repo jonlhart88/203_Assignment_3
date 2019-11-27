@@ -10,24 +10,27 @@ bau_scenarios <- read_csv("Business As Usual Scenarios Data.csv") %>%
 ggplot(data = bau_scenarios, aes(x = year)) +
   geom_line(aes(y = high),
             color = "#229954",
-            size = 1) +
+            size = 1.3) +
   geom_line(aes(y = medium),
             color = "#F1C40F",
-            size = 1) +
+            size = 1.3) +
   geom_line(aes(y = low),
             color = "#C0392B",
-            size = 1) +
+            size = 1.3) +
   geom_ribbon(aes(ymin = -400,
               ymax = 0),
               fill = "red",
               alpha = 0.10) +
   geom_hline(yintercept = 0) +
   geom_vline(xintercept = 2022.7,
-             linetype = 2) +
+             linetype = 2,
+             color = "#C0392B") +
   geom_vline(xintercept = 2035.9,
-             linetype = 2) +
+             linetype = 2,
+             color = "#F1C40F") +
   geom_vline(xintercept = 2049.3,
-             linetype = 2) +
+             linetype = 2,
+             color = "#229954") +
   scale_x_continuous(limits = c(2000, 2050.5),
                      breaks = seq(2000, 2050, by = 5),
                      expand = c(0,0)) +
@@ -82,24 +85,27 @@ policy_scenarios <- read_csv("Policy Scenarios Data.csv") %>%
 ggplot(data = policy_scenarios, aes(x = year)) +
   geom_line(aes(y = high),
             color = "#229954",
-            size = 1) +
+            size = 1.3) +
   geom_line(aes(y = medium),
             color = "#F1C40F",
-            size = 1) +
+            size = 1.3) +
   geom_line(aes(y = low),
             color = "#C0392B",
-            size = 1) +
+            size = 1.3) +
   geom_ribbon(aes(ymin = -400,
                   ymax = 0),
               fill = "red",
               alpha = 0.10) +
   geom_hline(yintercept = 0) +
   geom_vline(xintercept = 2027.3,
-             linetype = 2) +
+             linetype = 2,
+             color = "#C0392B") +
   geom_vline(xintercept = 2045.6,
-             linetype = 2) +
+             linetype = 2,
+             color = "#F1C40F") +
   geom_vline(xintercept = 2064.8,
-             linetype = 2) +
+             linetype = 2,
+             color = "#229954") +
   scale_x_continuous(limits = c(2000, 2066),
                      breaks = seq(2000, 2065, by = 5),
                      expand = c(0,0)) +
